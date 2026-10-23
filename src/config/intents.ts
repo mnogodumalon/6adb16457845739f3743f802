@@ -20,6 +20,7 @@
 import type { ComponentType } from 'react';
 
 // <custom:intent-imports>
+import { IconCalendarPlus, IconMailCheck, IconLogout, IconCamera } from '@tabler/icons-react';
 // </custom:intent-imports>
 
 export interface IntentLink {
@@ -42,6 +43,10 @@ export interface IntentLink {
 
 export const INTENTS: IntentLink[] = [
   // <custom:intents>
+  { path: '/intents/aufenthalt-anlegen', label: { de: 'Aufenthalt anlegen', en: 'Create stay' }, icon: IconCalendarPlus, description: 'Neuen Aufenthalt für einen Hund planen, ggf. mit neuem Besitzer und Hund, und auf Doppelbelegung prüfen.' },
+  { path: '/intents/anfrage-annehmen', label: { de: 'Anfrage annehmen', en: 'Accept request' }, icon: IconMailCheck, description: 'Reservierungsanfrage prüfen und in Besitzer, Hund und Aufenthalt überführen.' },
+  { path: '/intents/auschecken', label: { de: 'Hund auschecken', en: 'Check out dog' }, icon: IconLogout, description: 'Eingecheckten Aufenthalt bei Abholung abschließen.' },
+  { path: '/intents/portraet-erstellen', label: { de: 'Aufenthaltsporträt erstellen', en: 'Create stay portrait' }, icon: IconCamera, description: 'Porträt mit Foto, Geschichte und Highlights für einen Aufenthalt anlegen.' },
   // </custom:intents>
 ];
 
@@ -52,7 +57,7 @@ export const INTENTS: IntentLink[] = [
  * purpose — a scaffold update resets it to false (self-healing if Phase 2
  * never ran).
  */
-export const INTENTS_PENDING = true;
+export const INTENTS_PENDING = false;
 
 /**
  * When the Phase-1 bundle was deployed (ISO, set by the service together with
