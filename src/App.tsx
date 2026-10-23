@@ -14,6 +14,12 @@ import { IntentPolicyLoader } from '@/components/IntentPolicyLoader';
 import IntentsAdmin from '@/pages/IntentsAdmin';
 import AppMap from '@/pages/AppMap';
 // <custom:imports>
+const IntentAufenthaltPlanenPage = lazy(() => import('@/pages/intents/AufenthaltPlanenPage'));
+import { DashboardSkeleton } from '@/components/DashboardStates';
+const IntentAnfrageAnnehmenPage = lazy(() => import('@/pages/intents/AnfrageAnnehmenPage'));
+const IntentAnfrageAblehnenPage = lazy(() => import('@/pages/intents/AnfrageAblehnenPage'));
+const IntentHundEincheckenPage = lazy(() => import('@/pages/intents/HundEincheckenPage'));
+const IntentHundAuscheckenPage = lazy(() => import('@/pages/intents/HundAuscheckenPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -85,6 +91,11 @@ export default function App() {
                 <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
                 <Route path="verwaltung/oeffentliche-seiten/:slug/felder" element={<PublicPageFields />} />
                 {/* <custom:routes> */}
+                <Route path="intents/aufenthalt-planen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAufenthaltPlanenPage /></Suspense>} />
+                <Route path="intents/anfrage-annehmen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAnfrageAnnehmenPage /></Suspense>} />
+                <Route path="intents/anfrage-ablehnen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAnfrageAblehnenPage /></Suspense>} />
+                <Route path="intents/hund-einchecken" element={<Suspense fallback={<DashboardSkeleton />}><IntentHundEincheckenPage /></Suspense>} />
+                <Route path="intents/hund-auschecken" element={<Suspense fallback={<DashboardSkeleton />}><IntentHundAuscheckenPage /></Suspense>} />
                 {/* </custom:routes> */}
                 {/* An unknown hash (a bookmark from before a rebuild renamed the
                     flows, a mistyped link) must not be a blank page. */}

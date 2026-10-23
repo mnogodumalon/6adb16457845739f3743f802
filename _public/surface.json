@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "reservierungsanfrage",
+      "component": "Reservierungsanfrage",
+      "title": "Reservierungsanfrage",
+      "endpoints": [
+        {
+          "entity": "aufenthalte",
+          "op": "list",
+          "fields": [
+            "anreise",
+            "abreise",
+            "status"
+          ],
+          "scope": "r.v_status in ['bestaetigt', 'eingecheckt'] and r.v_abreise >= today()",
+          "scope_description": "zeigt nur bestätigte und eingecheckte Aufenthalte, die noch nicht beendet sind (nur Anreise und Abreise, keine Namen)",
+          "max_records": 500,
+          "availability_fields": [
+            "status"
+          ]
+        },
+        {
+          "entity": "reservierungsanfragen",
+          "op": "create",
+          "fields": [
+            "anfrage_firstname",
+            "anfrage_lastname",
+            "anfrage_email",
+            "anfrage_telefon",
+            "anfrage_hundename",
+            "anfrage_rasse",
+            "wunsch_anreise",
+            "wunsch_abreise",
+            "nachricht"
+          ],
+          "preset_fields": {
+            "bearbeitungsstatus": "neu"
+          }
+        }
+      ]
+    }
+  ]
+}

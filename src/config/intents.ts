@@ -20,6 +20,7 @@
 import type { ComponentType } from 'react';
 
 // <custom:intent-imports>
+import { IconCalendarPlus, IconCircleCheck, IconCircleX, IconLogin, IconLogout } from '@tabler/icons-react';
 // </custom:intent-imports>
 
 export interface IntentLink {
@@ -42,6 +43,11 @@ export interface IntentLink {
 
 export const INTENTS: IntentLink[] = [
   // <custom:intents>
+  { path: '/intents/aufenthalt-planen', label: { de: 'Aufenthalt planen', en: 'Plan a stay' }, icon: IconCalendarPlus, description: 'Aufenthalt für einen Hund anlegen und als Bestätigt speichern' },
+  { path: '/intents/anfrage-annehmen', label: { de: 'Reservierungsanfrage annehmen', en: 'Accept reservation request' }, icon: IconCircleCheck, description: 'Anfrage prüfen, Besitzer, Hund und Aufenthalt anlegen' },
+  { path: '/intents/anfrage-ablehnen', label: { de: 'Reservierungsanfrage ablehnen', en: 'Decline reservation request' }, icon: IconCircleX, description: 'Reservierungsanfrage prüfen und auf Abgelehnt setzen' },
+  { path: '/intents/hund-einchecken', label: { de: 'Hund einchecken', en: 'Check in a dog' }, icon: IconLogin, description: 'Bestätigten Aufenthalt bei Anreise auf Eingecheckt setzen' },
+  { path: '/intents/hund-auschecken', label: { de: 'Hund auschecken', en: 'Check out a dog' }, icon: IconLogout, description: 'Eingecheckten Aufenthalt bei Abreise auf Abgeschlossen setzen' },
   // </custom:intents>
 ];
 
@@ -52,7 +58,7 @@ export const INTENTS: IntentLink[] = [
  * purpose — a scaffold update resets it to false (self-healing if Phase 2
  * never ran).
  */
-export const INTENTS_PENDING = true;
+export const INTENTS_PENDING = false;
 
 /**
  * When the Phase-1 bundle was deployed (ISO, set by the service together with
