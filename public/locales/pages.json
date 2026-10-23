@@ -1,0 +1,42 @@
+{
+  "pages": {
+    "en": {
+      "Abreise": "Departure",
+      "Alle Gäste haben einen aktuellen Impfschutz.": "All guests have up-to-date vaccinations.",
+      "Alle Porträts sind bei den Besitzern.": "All portraits have been sent to the owners.",
+      "Als Nächstes kommt {0} am {1}.": "Next arrival: {0} on {1}.",
+      "Als gesendet": "Mark as sent",
+      "Anfrage annehmen": "Accept request",
+      "Anfrage prüfen": "Review request",
+      "Anreise": "Arrival",
+      "Anreisen & Abreisen": "Arrivals & departures",
+      "Anreisen (7 Tage)": "Arrivals (7 days)",
+      "Aufenthalt planen": "Plan stay",
+      "Auschecken": "Check out",
+      "Bearbeiten": "Edit",
+      "Einchecken": "Check in",
+      "Eingecheckt": "Checked in",
+      "Ersten Hund aufnehmen": "Add first dog",
+      "Gerade ist es ruhig im Haus — Zeit, neue Gäste einzuplanen.": "It's quiet at the kennel right now — time to schedule new guests.",
+      "Heute kommen {0} an — {1} reist ab.": "{0} arriving today — {1} departing.",
+      "Heute kommen {0} an.": "{0} arriving today.",
+      "Heute reist {0} ab.": "{0} departing today.",
+      "Hund": "Dog",
+      "Impfschutz nicht aktuell": "Vaccination not up to date",
+      "Impfschutz prüfen": "Check vaccination status",
+      "Interessent": "Prospect",
+      "Keine Anreisen oder Abreisen in den nächsten 7 Tagen.": "No arrivals or departures in the next 7 days.",
+      "Ohne Hund": "No dog",
+      "Porträt": "Portrait",
+      "Porträt als gesendet markiert": "Portrait marked as sent",
+      "Porträt erstellen": "Create portrait",
+      "Porträts noch nicht gesendet": "Portraits not yet sent",
+      "Richte deine Pension ein — lege zuerst einen Hund mit Besitzer an.": "Set up your kennel — first create a dog with an owner.",
+      "Zu Gast sind gerade {0}.": "Currently staying: {0}.",
+      "hat eine neue Reservierungsanfrage gestellt ({0}).": "has submitted a new reservation request ({0}).",
+      "heute": "today",
+      "warten auf eine Antwort — älteste Anfrage für {0}.": "awaiting a reply — oldest request for {0}."
+    }
+  },
+  "v": 1
+}

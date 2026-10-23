@@ -1,0 +1,51 @@
+{
+  "BesitzerDialog.tsx": {
+    "besitzer_firstname": "z. B. Anna",
+    "besitzer_lastname": "z. B. Müller",
+    "email": "z. B. anna@beispiel.de",
+    "strasse": "z. B. Lindenallee",
+    "hausnummer": "z. B. 12a",
+    "plz": "z. B. 80331",
+    "ort": "z. B. München",
+    "notfallkontakt_firstname": "z. B. Peter",
+    "notfallkontakt_lastname": "z. B. Schmidt",
+    "bemerkungen": "Besonderheiten zum Besitzer"
+  },
+  "HundeDialog.tsx": {
+    "hundename": "z. B. Bello",
+    "besitzer": "Welcher Besitzer?",
+    "rasse": "z. B. Labrador",
+    "geburtsdatum": "Wann wurde der Hund geboren?",
+    "gewicht": "z. B. 12,5",
+    "tierarzt": "z. B. Dr. Müller",
+    "futterhinweise": "Was darf der Hund fressen?",
+    "medikamente": "Eine Medikation pro Zeile",
+    "vertraeglichkeit": "Was ist zu beachten?"
+  },
+  "AufenthalteDialog.tsx": {
+    "hund": "Welcher Hund?",
+    "anreise": "Wann reist der Hund an?",
+    "abreise": "Wann reist der Hund ab?",
+    "unterkunft": "z. B. Zimmer 3",
+    "preis_pro_tag": "z. B. 35",
+    "besonderheiten": "Futter, Medikamente, Verhalten",
+    "interne_notizen": "Notizen nur fürs Team"
+  },
+  "AufenthaltsportraetsDialog.tsx": {
+    "aufenthalt": "Welcher Aufenthalt?",
+    "titel": "z. B. Bellos Wochenende am See",
+    "geschichte": "Was hat der Hund erlebt?",
+    "highlights": "Ein Highlight pro Zeile",
+    "portraet_datum": "Wann entstand das Porträt?"
+  },
+  "ReservierungsanfragenDialog.tsx": {
+    "anfrage_firstname": "z. B. Anna",
+    "anfrage_lastname": "z. B. Müller",
+    "anfrage_email": "z. B. anna@beispiel.de",
+    "anfrage_hundename": "z. B. Bella",
+    "anfrage_rasse": "z. B. Labrador",
+    "wunsch_anreise": "Wann soll es losgehen?",
+    "wunsch_abreise": "Wann wird abgeholt?",
+    "nachricht": "Besondere Wünsche oder Hinweise"
+  }
+}
