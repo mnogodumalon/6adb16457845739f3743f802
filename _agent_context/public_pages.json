@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "slug": "reservierungsanfrage",
+      "type": "custom",
+      "entity": "reservierungsanfragen",
+      "title": "Reservierungsanfrage",
+      "published": false,
+      "fields": [
+        "anfrage_firstname",
+        "anfrage_lastname",
+        "anfrage_email",
+        "anfrage_telefon",
+        "anfrage_hundename",
+        "anfrage_rasse",
+        "wunsch_anreise",
+        "wunsch_abreise",
+        "nachricht"
+      ],
+      "policy": null
+    }
+  ]
+}
