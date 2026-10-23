@@ -1,7 +1,7 @@
 /**
  * useAufenthaltPlanenFlow — the plumbing of the flow « Aufenthalt planen », generated from the plan.
  *
- * Writes `aufenthalte`: asks `hund`, `anreise`, `abreise`, `unterkunft`, `preis_pro_tag`, `besonderheiten`; sets `status` itself.
+ * Writes `aufenthalte`: asks `hund`, `abreise`, `anreise`, `unterkunft`, `preis_pro_tag`, `besonderheiten`; sets `status` itself.
  * The hook OWNS: the form(s) with exactly these fields and the plan's required
  * ingredients, one record search per picked field (columns and filter from
  * the plan), and the submit plan with its fixed and derived values. A page
@@ -16,13 +16,13 @@
  *   messages  the sentence for an empty required field, per field
  *
  *   const flow = useAufenthaltPlanenFlow({
- *     steps: { hund: 1, anreise: 2, abreise: 2, unterkunft: 2, preis_pro_tag: 2, besonderheiten: 2 },
+ *     steps: { hund: 1, abreise: 2, anreise: 2, unterkunft: 2, preis_pro_tag: 2, besonderheiten: 2 },
  *     items: { hund: r => ({ id: r.id, title: fieldText(r, 'hundename') }) },
  *   });
  *   <IntentWizardShell forms={flow.forms} draftKey={flow.draftKey} …>
  *     <EntitySelectStep {...flow.picks.hund.select} {...flow.pick('hund')} />
- *     <Bound form={flow.forms.aufenthalte} name="anreise" />
  *     <Bound form={flow.forms.aufenthalte} name="abreise" />
+ *     <Bound form={flow.forms.aufenthalte} name="anreise" />
  *     <Bound form={flow.forms.aufenthalte} name="unterkunft" />
  *     <Bound form={flow.forms.aufenthalte} name="preis_pro_tag" />
  *     <Bound form={flow.forms.aufenthalte} name="besonderheiten" />
@@ -91,10 +91,10 @@ function hasValues(form: StepForm): boolean {
 export function useAufenthaltPlanenFlow(options: AufenthaltPlanenFlowOptions = {}) {
   const steps = { ...DEFAULT_STEPS, ...(options.steps ?? {}) } as Record<string, number>;
   const aufenthalte = useStepForm('aufenthalte', {
-    fields: ["hund", "anreise", "abreise", "unterkunft", "preis_pro_tag", "besonderheiten"],
-    steps: only(steps, ["hund", "anreise", "abreise", "unterkunft", "preis_pro_tag", "besonderheiten"]) as Record<string, number>,
-    initial: only(options.initial as FormValues | undefined, ["hund", "anreise", "abreise", "unterkunft", "preis_pro_tag", "besonderheiten"]),
-    messages: only(options.messages as Record<string, string> | undefined, ["hund", "anreise", "abreise", "unterkunft", "preis_pro_tag", "besonderheiten"]),
+    fields: ["hund", "abreise", "anreise", "unterkunft", "preis_pro_tag", "besonderheiten"],
+    steps: only(steps, ["hund", "abreise", "anreise", "unterkunft", "preis_pro_tag", "besonderheiten"]) as Record<string, number>,
+    initial: only(options.initial as FormValues | undefined, ["hund", "abreise", "anreise", "unterkunft", "preis_pro_tag", "besonderheiten"]),
+    messages: only(options.messages as Record<string, string> | undefined, ["hund", "abreise", "anreise", "unterkunft", "preis_pro_tag", "besonderheiten"]),
   });
   const forms: AufenthaltPlanenForms = { aufenthalte };
   const formList: StepForm[] = [aufenthalte];

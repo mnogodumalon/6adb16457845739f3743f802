@@ -73,6 +73,6 @@ createRecordUrl from the service. Note the lowercase `l` in the service path.
   ✚ EnrichedAufenthaltsportraets adds ONLY aufenthaltName — via enrichAufenthaltsportraets(aufenthaltsportraets, { aufenthalteMap }), all maps required
   → aufenthalt links to app_id 6adb1622476b5049194098b3
 - Reservierungsanfragen (reservierungsanfragen): anfrage_firstname!^[string/text] "Vorname", anfrage_lastname!^[string/text] "Nachname", anfrage_email!^[string/email] "E-Mail", anfrage_telefon^[string/tel] "Telefon", anfrage_hundename!^[string/text] "Name des Hundes", anfrage_rasse[string/text] "Rasse", wunsch_anreise![date/date] "Gewünschte Anreise", wunsch_abreise![date/date] "Gewünschte Abreise", nachricht[string/textarea], bearbeitungsstatus[lookup/select: neu|in_pruefung|angenommen|abgelehnt]
-  ≡ 3 records at build time
+  ≡ 4 records at build time
   ◈ wunsch_anreise+wunsch_abreise → range candidate — YOU decide in .intents-staging/occupancy.json whether it is a stay, which applookup is the booked resource, which status keys do not occupy (AvailabilityRangePicker, form.range; blocked = occupancyFor()) · bearbeitungsstatus → choice (4 options, ChoiceGroup)
   ⚙ getReservierungsanfragen() · getReservierungsanfragenEntry(id) · createReservierungsanfragenEntry(fields) · updateReservierungsanfragenEntry(id, fields) · deleteReservierungsanfragenEntry(id) · queryReservierungsanfragen({ filter, orderby, limit, offset, fields }) · countReservierungsanfragen(filter?)

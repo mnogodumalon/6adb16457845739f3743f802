@@ -34,10 +34,7 @@
             "wunsch_anreise",
             "wunsch_abreise",
             "nachricht"
-          ],
-          "preset_fields": {
-            "bearbeitungsstatus": "neu"
-          }
+          ]
         }
       ]
     }

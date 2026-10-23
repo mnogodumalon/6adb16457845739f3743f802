@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "flows": [
+    {
+      "path": "/intents/aufenthalt-planen",
+      "label": "Aufenthalt planen",
+      "description": "Aufenthalt für einen Hund anlegen und als Bestätigt speichern",
+      "file": "src/pages/intents/AufenthaltPlanenPage.tsx",
+      "summary": "/**\n * Aufenthalt planen — 4-Schritt-Wizard.\n * Steps: 1) Hund wählen → 2) Anreise/Abreise → 3) Unterkunft, Preis, Besonderheiten (mit Überschneidungsprüfung) → 4) Prüfen & speichern.\n * Reads: hunde, aufenthalte (Belegungszähler). Writes: aufenthalte (Status fest „Bestätigt\").\n * Composes: IntentWizardShell, EntitySelectStep, AvailabilityRangePicker, Bound, StepNav, SummaryStep, SuccessStep.\n */",
+      "components": [
+        "AvailabilityRangePicker",
+        "Bound",
+        "EntitySelectStep",
+        "IntentWizardShell",
+        "StepNav",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    },
+    {
+      "path": "/intents/anfrage-annehmen",
+      "label": "Reservierungsanfrage annehmen",
+      "description": "Anfrage prüfen, Besitzer, Hund und Aufenthalt anlegen",
+      "file": "src/pages/intents/AnfrageAnnehmenPage.tsx",
+      "summary": "/**\n * Reservierungsanfrage annehmen — 5-Schritt-Wizard.\n * Steps: 1) Anfrage wählen → 2) Besitzer & Hund prüfen → 3) Unterkunft & Preis → 4) Zeitraum & Verfügbarkeit → 5) Prüfen & annehmen.\n * Reads: reservierungsanfragen (Auswahl), aufenthalte (Belegung). Writes: besitzer, hunde, aufenthalte (Status Bestätigt), reservierungsanfragen (Status Angenommen).\n * Composes: IntentWizardShell, EntitySelectStep, Bound, AvailabilityRangePicker, StepNav, SummaryStep, SuccessStep.\n */",
+      "components": [
+        "AvailabilityRangePicker",
+        "Bound",
+        "EntitySelectStep",
+        "IntentWizardShell",
+        "StepNav",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    },
+    {
+      "path": "/intents/anfrage-ablehnen",
+      "label": "Reservierungsanfrage ablehnen",
+      "description": "Reservierungsanfrage prüfen und auf Abgelehnt setzen",
+      "file": "src/pages/intents/AnfrageAblehnenPage.tsx",
+      "summary": "/**\n * Reservierungsanfrage ablehnen — 2-Schritt-Wizard.\n * Steps: 1) Anfrage aus der Liste wählen → 2) Ablehnung prüfen & bestätigen.\n * Reads: reservierungsanfragen. Writes: reservierungsanfragen (bearbeitungsstatus = abgelehnt, via useAnfrageAblehnenFlow).\n * Composes: IntentWizardShell, EntitySelectStep, SummaryStep, SuccessStep.\n */",
+      "components": [
+        "EntitySelectStep",
+        "IntentWizardShell",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    },
+    {
+      "path": "/intents/hund-einchecken",
+      "label": "Hund einchecken",
+      "description": "Bestätigten Aufenthalt bei Anreise auf Eingecheckt setzen",
+      "file": "src/pages/intents/HundEincheckenPage.tsx",
+      "summary": "/**\n * Hund einchecken — 3-Schritt-Wizard.\n * Steps: 1) Bestätigten Aufenthalt wählen → 2) Impfschutz und Hinweise des Hundes ansehen → 3) Einchecken bestätigen.\n * Reads: aufenthalte, hunde. Writes: aufenthalte (status → eingecheckt, via useHundEincheckenFlow).\n * Composes: IntentWizardShell, EntitySelectStep, StepNav, SummaryStep, SuccessStep.\n */",
+      "components": [
+        "EntitySelectStep",
+        "IntentWizardShell",
+        "StepNav",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    },
+    {
+      "path": "/intents/hund-auschecken",
+      "label": "Hund auschecken",
+      "description": "Eingecheckten Aufenthalt bei Abreise auf Abgeschlossen setzen",
+      "file": "src/pages/intents/HundAuscheckenPage.tsx",
+      "summary": "/**\n * Hund auschecken — 2-Schritt-Wizard.\n * Steps: 1) Eingecheckten Aufenthalt wählen → 2) Abreise bestätigen (Prüfen & abschließen).\n * Reads: aufenthalte (Status eingecheckt), hunde (Name über Verweis). Writes: aufenthalte.status = abgeschlossen (update).\n * Composes: IntentWizardShell, EntitySelectStep, SummaryStep, SuccessStep.\n */",
+      "components": [
+        "EntitySelectStep",
+        "IntentWizardShell",
+        "SuccessStep",
+        "SummaryStep",
+        "WizardStep"
+      ],
+      "writes": []
+    }
+  ],
+  "unregistered_pages": []
+}

@@ -20,7 +20,7 @@
 import type { ComponentType } from 'react';
 
 // <custom:intent-imports>
-import { IconCalendarPlus, IconCircleCheck, IconCircleX, IconLogin, IconLogout } from '@tabler/icons-react';
+import { IconCalendarPlus, IconCircleCheck, IconCircleX, IconLogin, IconLogout, IconCamera } from '@tabler/icons-react';
 // </custom:intent-imports>
 
 export interface IntentLink {
@@ -48,6 +48,7 @@ export const INTENTS: IntentLink[] = [
   { path: '/intents/anfrage-ablehnen', label: { de: 'Reservierungsanfrage ablehnen', en: 'Decline reservation request' }, icon: IconCircleX, description: 'Reservierungsanfrage prüfen und auf Abgelehnt setzen' },
   { path: '/intents/hund-einchecken', label: { de: 'Hund einchecken', en: 'Check in a dog' }, icon: IconLogin, description: 'Bestätigten Aufenthalt bei Anreise auf Eingecheckt setzen' },
   { path: '/intents/hund-auschecken', label: { de: 'Hund auschecken', en: 'Check out a dog' }, icon: IconLogout, description: 'Eingecheckten Aufenthalt bei Abreise auf Abgeschlossen setzen' },
+  { path: '/intents/portraet-erstellen', label: { de: 'Aufenthaltsporträt erstellen', en: 'Create stay portrait' }, icon: IconCamera, description: 'Porträt mit Foto, Geschichte und Highlights für einen Aufenthalt anlegen' },
   // </custom:intents>
 ];
 

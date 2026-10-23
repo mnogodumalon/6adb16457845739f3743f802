@@ -14,11 +14,7 @@
 
 import { INTENTS } from '@/config/intents';
 
-export const SYSTEM_ASSIGNED: Record<string, string[]> = {
-  "aufenthaltsportraets": [
-    "portraet_datum"
-  ]
-};
+export const SYSTEM_ASSIGNED: Record<string, string[]> = {};
 
 export const PLAN_SENTENCES: Record<string, string[]> = {
   "aufenthalt-planen": [
@@ -41,6 +37,10 @@ export const PLAN_SENTENCES: Record<string, string[]> = {
   "hund-auschecken": [
     "Ändert: aufenthalte",
     "Automatisch: status (fester Wert „abgeschlossen“)"
+  ],
+  "portraet-erstellen": [
+    "Legt an: aufenthaltsportraets",
+    "Automatisch: portraet_datum (heutiges Datum, automatisch), an_besitzer_gesendet (fester Wert „false“)"
   ]
 };
 
@@ -66,6 +66,9 @@ export const FLOW_ENTITIES: Record<string, string[]> = {
   ],
   "hund-auschecken": [
     "aufenthalte"
+  ],
+  "portraet-erstellen": [
+    "aufenthaltsportraets"
   ]
 };
 

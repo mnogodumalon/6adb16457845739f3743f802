@@ -20,6 +20,7 @@ const IntentAnfrageAnnehmenPage = lazy(() => import('@/pages/intents/AnfrageAnne
 const IntentAnfrageAblehnenPage = lazy(() => import('@/pages/intents/AnfrageAblehnenPage'));
 const IntentHundEincheckenPage = lazy(() => import('@/pages/intents/HundEincheckenPage'));
 const IntentHundAuscheckenPage = lazy(() => import('@/pages/intents/HundAuscheckenPage'));
+const IntentPortraetErstellenPage = lazy(() => import('@/pages/intents/PortraetErstellenPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -96,6 +97,7 @@ export default function App() {
                 <Route path="intents/anfrage-ablehnen" element={<Suspense fallback={<DashboardSkeleton />}><IntentAnfrageAblehnenPage /></Suspense>} />
                 <Route path="intents/hund-einchecken" element={<Suspense fallback={<DashboardSkeleton />}><IntentHundEincheckenPage /></Suspense>} />
                 <Route path="intents/hund-auschecken" element={<Suspense fallback={<DashboardSkeleton />}><IntentHundAuscheckenPage /></Suspense>} />
+                <Route path="intents/portraet-erstellen" element={<Suspense fallback={<DashboardSkeleton />}><IntentPortraetErstellenPage /></Suspense>} />
                 {/* </custom:routes> */}
                 {/* An unknown hash (a bookmark from before a rebuild renamed the
                     flows, a mistyped link) must not be a blank page. */}

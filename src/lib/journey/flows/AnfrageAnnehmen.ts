@@ -1,9 +1,9 @@
 /**
  * useAnfrageAnnehmenFlow — the plumbing of the flow « Reservierungsanfrage annehmen », generated from the plan.
  *
- * Writes `besitzer`: asks `besitzer_firstname`, `besitzer_lastname`, `email`, `telefon`.
-Writes `hunde`: asks `hundename`, `rasse`; links `besitzer` ← the created `besitzer`.
-Writes `aufenthalte`: asks `anreise`, `abreise`, `unterkunft`, `preis_pro_tag`; sets `status` itself; links `hund` ← the created `hunde`.
+ * Writes `besitzer`: asks `email`, `telefon`, `besitzer_lastname`, `besitzer_firstname`.
+Writes `hunde`: asks `rasse`, `hundename`; links `besitzer` ← the created `besitzer`.
+Writes `aufenthalte`: asks `abreise`, `anreise`, `unterkunft`, `preis_pro_tag`; sets `status` itself; links `hund` ← the created `hunde`.
 Changes `reservierungsanfragen`: the record to change is picked (`flow.pick('reservierungsanfragen')`), the form is prefilled with its values; ; sets `bearbeitungsstatus` itself.
  * The hook OWNS: the form(s) with exactly these fields and the plan's required
  * ingredients, one record search per picked field (columns and filter from
@@ -19,19 +19,19 @@ Changes `reservierungsanfragen`: the record to change is picked (`flow.pick('res
  *   messages  the sentence for an empty required field, per field
  *
  *   const flow = useAnfrageAnnehmenFlow({
- *     steps: { reservierungsanfragen: 1, besitzer_firstname: 2, besitzer_lastname: 2, email: 2, telefon: 2, hundename: 2, rasse: 2, anreise: 2, abreise: 2, unterkunft: 2, preis_pro_tag: 2 },
+ *     steps: { reservierungsanfragen: 1, email: 2, telefon: 2, besitzer_lastname: 2, besitzer_firstname: 2, rasse: 2, hundename: 2, abreise: 2, anreise: 2, unterkunft: 2, preis_pro_tag: 2 },
  *     items: { reservierungsanfragen: r => ({ id: r.id, title: fieldText(r, 'anfrage_firstname') }) },
  *   });
  *   <IntentWizardShell forms={flow.forms} draftKey={flow.draftKey} …>
  *     // the record this flow changes: <EntitySelectStep {...flow.picks.reservierungsanfragen.select} {...flow.pick('reservierungsanfragen')} />
- *     <Bound form={flow.forms.besitzer} name="besitzer_firstname" />
- *     <Bound form={flow.forms.besitzer} name="besitzer_lastname" />
  *     <Bound form={flow.forms.besitzer} name="email" />
  *     <Bound form={flow.forms.besitzer} name="telefon" />
- *     <Bound form={flow.forms.hunde} name="hundename" />
+ *     <Bound form={flow.forms.besitzer} name="besitzer_lastname" />
+ *     <Bound form={flow.forms.besitzer} name="besitzer_firstname" />
  *     <Bound form={flow.forms.hunde} name="rasse" />
- *     <Bound form={flow.forms.aufenthalte} name="anreise" />
+ *     <Bound form={flow.forms.hunde} name="hundename" />
  *     <Bound form={flow.forms.aufenthalte} name="abreise" />
+ *     <Bound form={flow.forms.aufenthalte} name="anreise" />
  *     <Bound form={flow.forms.aufenthalte} name="unterkunft" />
  *     <Bound form={flow.forms.aufenthalte} name="preis_pro_tag" />
  *     <StepNav onNext={() => flow.validateStep(n)} />
@@ -105,22 +105,22 @@ export function useAnfrageAnnehmenFlow(options: AnfrageAnnehmenFlowOptions = {})
   const steps = { ...DEFAULT_STEPS, ...(options.steps ?? {}) } as Record<string, number>;
   const [reservierungsanfragenTargetId, setReservierungsanfragenTargetId] = useState<string | null>(null);
   const besitzer = useStepForm('besitzer', {
-    fields: ["besitzer_firstname", "besitzer_lastname", "email", "telefon"],
-    steps: only(steps, ["besitzer_firstname", "besitzer_lastname", "email", "telefon"]) as Record<string, number>,
-    initial: only(options.initial as FormValues | undefined, ["besitzer_firstname", "besitzer_lastname", "email", "telefon"]),
-    messages: only(options.messages as Record<string, string> | undefined, ["besitzer_firstname", "besitzer_lastname", "email", "telefon"]),
+    fields: ["email", "telefon", "besitzer_lastname", "besitzer_firstname"],
+    steps: only(steps, ["email", "telefon", "besitzer_lastname", "besitzer_firstname"]) as Record<string, number>,
+    initial: only(options.initial as FormValues | undefined, ["email", "telefon", "besitzer_lastname", "besitzer_firstname"]),
+    messages: only(options.messages as Record<string, string> | undefined, ["email", "telefon", "besitzer_lastname", "besitzer_firstname"]),
   });
   const hunde = useStepForm('hunde', {
-    fields: ["hundename", "rasse"],
-    steps: only(steps, ["hundename", "rasse"]) as Record<string, number>,
-    initial: only(options.initial as FormValues | undefined, ["hundename", "rasse"]),
-    messages: only(options.messages as Record<string, string> | undefined, ["hundename", "rasse"]),
+    fields: ["rasse", "hundename"],
+    steps: only(steps, ["rasse", "hundename"]) as Record<string, number>,
+    initial: only(options.initial as FormValues | undefined, ["rasse", "hundename"]),
+    messages: only(options.messages as Record<string, string> | undefined, ["rasse", "hundename"]),
   });
   const aufenthalte = useStepForm('aufenthalte', {
-    fields: ["anreise", "abreise", "unterkunft", "preis_pro_tag"],
-    steps: only(steps, ["anreise", "abreise", "unterkunft", "preis_pro_tag"]) as Record<string, number>,
-    initial: only(options.initial as FormValues | undefined, ["anreise", "abreise", "unterkunft", "preis_pro_tag"]),
-    messages: only(options.messages as Record<string, string> | undefined, ["anreise", "abreise", "unterkunft", "preis_pro_tag"]),
+    fields: ["abreise", "anreise", "unterkunft", "preis_pro_tag"],
+    steps: only(steps, ["abreise", "anreise", "unterkunft", "preis_pro_tag"]) as Record<string, number>,
+    initial: only(options.initial as FormValues | undefined, ["abreise", "anreise", "unterkunft", "preis_pro_tag"]),
+    messages: only(options.messages as Record<string, string> | undefined, ["abreise", "anreise", "unterkunft", "preis_pro_tag"]),
   });
   const reservierungsanfragen = useStepForm('reservierungsanfragen', {
     fields: [],
